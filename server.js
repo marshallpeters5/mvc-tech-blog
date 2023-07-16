@@ -36,10 +36,17 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Import routes here
+const userRoutes = require('./controllers/userController');
+const postRoutes = require('./controllers/postController');
+const commentRoutes = require('./controllers/commentController');
 
+app.use('/users', userRoutes);
+app.use('/posts', postRoutes);
+app.use('/comments', commentRoutes);
 
-app.listen(PORT, () => {
+const db = require('./models');
+
+app.listen(PORT, async () => {
   console.log(`App listening on port ${PORT}!`);
-  sequelize.sync({ force: false });
+  await db.sequelize.sync({ force: false });
 });
