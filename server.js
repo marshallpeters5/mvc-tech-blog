@@ -8,6 +8,7 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 const sequelize = require('./config/config');
+const db = require('./models');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const sess = {
@@ -37,8 +38,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(require('./controllers/'));
-
-const db = require('./models');
 
 app.listen(PORT, async () => {
   console.log(`App listening on port ${PORT}!`);

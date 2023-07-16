@@ -1,9 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const { Comment } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 // Create a new comment //
-router.post('/', async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
   try {
     const newComment = await Comment.create(req.body);
     res.status(201).json(newComment);
@@ -14,7 +15,7 @@ router.post('/', async (req, res) => {
 });
 
 // Update a comment by ID //
-router.put('/:id', async (req, res) => {
+router.put('/:id', withAuth, async (req, res) => {
     try {
       const commentId = req.params.id;
   
@@ -35,7 +36,7 @@ router.put('/:id', async (req, res) => {
   });
 
 // Delete a comment by ID //
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', withAuth, async (req, res) => {
   try {
     const commentId = req.params.id;
 
