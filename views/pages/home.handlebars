@@ -1,0 +1,11 @@
+{{> header loggedIn=loggedIn}}
+
+{{#each posts}}
+  <div>
+    <h2>{{this.title}}</h2>
+    <p>By {{this.user.username}}</p>
+    <p>{{this.createdAt}}</p>
+    <p>{{this.content}}</p>
+    <a href="/post/{{this.id}}">Read more</a>
+  </div>
+{{/each}}

@@ -1,0 +1,31 @@
+{{> header loggedIn=loggedIn}}
+
+<div>
+  <h2>{{post.title}}</h2>
+  <p>By {{post.user.username}}</p>
+  <p>{{post.createdAt}}</p>
+  <p>{{post.content}}</p>
+</div>
+
+<h3>Comments</h3>
+{{#each post.comments}}
+  <div>
+    <p>{{this.user.username}}</p>
+    <p>{{this.createdAt}}</p>
+    <p>{{this.comment_text}}</p>
+
+    <!-- Add the event listener for editing a comment -->
+    <form id="edit-comment-form-{{this.id}}">
+      <button type="submit">Save Changes</button>
+    </form>
+
+    <!-- Add the event listener for deleting a comment -->
+    <button id="delete-comment-{{this.id}}">Delete Comment</button>
+
+  </div>
+{{/each}}
+
+<!-- Add the event listener for creating a new comment -->
+<form id="new-comment-form">
+  <button type="submit">Submit</button>
+</form>

@@ -1,0 +1,24 @@
+{{> header loggedIn=loggedIn}}
+
+{{#each posts}}
+  <div>
+    <h2>{{this.title}}</h2>
+    <p>{{this.createdAt}}</p>
+    <p>{{this.content}}</p>
+
+    <!-- Add the event listener for editing a post -->
+    <form id="edit-post-form-{{this.id}}" action="/dashboard/edit/{{this.id}}" method="post">
+      <button type="submit">Save Changes</button>
+    </form>
+
+    <!-- Add the event listener for deleting a post -->
+    <button id="delete-post-{{this.id}}">Delete Post</button>
+
+  </div>
+{{/each}}
+
+<!-- Add the event listener for creating a new post -->
+<form id="new-post-form">
+  <!-- ... (new post form fields) ... -->
+  <button type="submit">Create Post</button>
+</form>

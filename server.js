@@ -36,13 +36,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-const userRoutes = require('./controllers/userController');
-const postRoutes = require('./controllers/postController');
-const commentRoutes = require('./controllers/commentController');
-
-app.use('/users', userRoutes);
-app.use('/posts', postRoutes);
-app.use('/comments', commentRoutes);
+app.use(require('./controllers/'));
 
 const db = require('./models');
 
