@@ -3,7 +3,7 @@ const router = express.Router();
 const { Post, User, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-// Get all posts //
+// Get all //
 router.get('/', withAuth, async (req, res) => {
   try {
     const posts = await Post.findAll({
@@ -21,7 +21,7 @@ router.get('/', withAuth, async (req, res) => {
   }
 });
 
-// Get a post by ID //
+// Get by ID //
 router.get('/:id', withAuth, async (req, res) => {
   try {
     const postId = req.params.id;
@@ -45,7 +45,7 @@ router.get('/:id', withAuth, async (req, res) => {
   }
 });
 
-// Create a post //
+// Create //
 router.post('/', withAuth, async (req, res) => {
   try {
     const newPost = await Post.create(req.body);
@@ -56,7 +56,7 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
-// Update a post by ID //
+// Update by ID //
 router.put('/:id', withAuth, async (req, res) => {
   try {
     const postId = req.params.id;
@@ -77,7 +77,7 @@ router.put('/:id', withAuth, async (req, res) => {
   }
 });
 
-// Delete a post by ID //
+// Delete by ID //
 router.delete('/:id', withAuth, async (req, res) => {
   try {
     const postId = req.params.id;

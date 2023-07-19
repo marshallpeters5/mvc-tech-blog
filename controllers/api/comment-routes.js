@@ -3,7 +3,7 @@ const router = express.Router();
 const { Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-// Create a new comment //
+// Create //
 router.post('/', withAuth, async (req, res) => {
   try {
     const newComment = await Comment.create(req.body);
@@ -14,7 +14,7 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
-// Update a comment by ID //
+// Update by ID //
 router.put('/:id', withAuth, async (req, res) => {
     try {
       const commentId = req.params.id;
@@ -35,7 +35,7 @@ router.put('/:id', withAuth, async (req, res) => {
     }
   });
 
-// Delete a comment by ID //
+// Delete by ID //
 router.delete('/:id', withAuth, async (req, res) => {
   try {
     const commentId = req.params.id;

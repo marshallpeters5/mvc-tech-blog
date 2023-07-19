@@ -6,19 +6,18 @@
     <p>{{this.createdAt}}</p>
     <p>{{this.content}}</p>
 
-    <!-- Add the event listener for editing a post -->
+    <!-- Update -->
     <form id="edit-post-form-{{this.id}}" action="/dashboard/edit/{{this.id}}" method="post">
       <button type="submit">Save Changes</button>
     </form>
 
-    <!-- Add the event listener for deleting a post -->
+    <!-- Delete -->
     <button id="delete-post-{{this.id}}">Delete Post</button>
 
   </div>
 {{/each}}
 
-<!-- Add the event listener for creating a new post -->
+<!-- Create -->
 <form id="new-post-form">
-  <!-- ... (new post form fields) ... -->
   <button type="submit">Create Post</button>
 </form>

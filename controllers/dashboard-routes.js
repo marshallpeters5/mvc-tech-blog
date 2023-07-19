@@ -22,7 +22,7 @@ router.get('/', withAuth, async (req, res) => {
   }
 });
 
-// Create a new blog post //
+// Create //
 router.post('/create', withAuth, async (req, res) => {
   try {
     await Post.create({
@@ -37,7 +37,7 @@ router.post('/create', withAuth, async (req, res) => {
   }
 });
 
-// Delete a blog post //
+// Delete //
 router.delete('/post/:id', withAuth, async (req, res) => {
   try {
     const postId = req.params.id;
